@@ -2,6 +2,7 @@ general:
   idb:
     host: localhost
     port: 8086
+    database: mithril
   timeout: 30
 
 miners:

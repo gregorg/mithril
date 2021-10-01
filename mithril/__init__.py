@@ -68,7 +68,7 @@ class Fetch:
         self.idb = influxdb.InfluxDBClient(
             host=config['general']["idb"]["host"],
             port=config['general']["idb"]["port"],
-            database='mining',
+            database=config['general']["idb"]["database"],
             gzip=False,
             timeout=600)
 
