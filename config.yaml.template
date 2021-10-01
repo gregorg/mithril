@@ -1,0 +1,32 @@
+general:
+  idb:
+    host: localhost
+    port: 8086
+  timeout: 30
+
+miners:
+  Groot:
+    hiveos:
+    - <hiveos token>
+    pools:
+      nanopool:
+        coin: eth
+        pool: nanopool
+        wallet: 'wallet>'
+      ethermine:
+        coin: eth
+        pool: ethermine
+        wallet: '<wallet>'
+    workers:
+      A10Pro:
+        power: 850
+        power_price: 0.11
+  StarLord:
+    hiveos:
+    - <hiveos token>
+    pools:
+      nanopool:
+        coin: eth
+        pool: nanopool
+        wallet: '<wallet>'
+

@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "mithril"
+version = "0.1.0"
+description = ""
+authors = ["Greg <skygreg@gmail.com>"]
+
+[tool.poetry.scripts]
+fetch = "mithril:main"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+influxdb = "^5.3.1"
+urllib3 = "^1.26.6"
+tqdm = "^4.62.2"
+termcolor = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^21.8b0"
+pre-commit = "^2.15.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

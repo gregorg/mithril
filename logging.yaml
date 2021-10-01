@@ -1,0 +1,32 @@
+version: 1
+disable_existing_loggers: False
+
+formatters:
+    simple:
+        format: "%(asctime)s - %(name)s - %(threadName)-9s - %(levelname)s - %(message)s"
+        datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: simple
+        stream: ext://sys.stderr
+
+loggers:
+    logger:
+        level: INFO
+        handlers: [console]
+        propagate: no
+    dblogger:
+        level: INFO
+        handlers: [console]
+        propagate: no
+    urllib3.connectionpool:
+        level: WARNING
+        handlers: [console]
+        propagate: no
+
+root:
+    level: INFO
+    handlers: [console]
