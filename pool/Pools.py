@@ -250,7 +250,11 @@ class Ethermine(Pool):
 
         workers = self.json("/miner/%s/workers"%self.wallet)
         for w in workers:
-            self.workers[w['worker']] = int(w['reportedHashrate']/1000000)
+            # On ASICs, reportedHashrate is 0:
+            if w['reportedHashrate'] == 0:
+                self.workers[w['worker']] = int(w['currentHashrate']/1000000)
+            else:
+                self.workers[w['worker']] = int(w['reportedHashrate']/1000000)
             self.points.append({
                 "measurement": "pool_workers",
                 "tags": {"worker": w['worker']},

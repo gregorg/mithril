@@ -210,10 +210,15 @@ class StaticWorkers(Farm):
                 gpus = self.config[worker]['gpus']
             except KeyError: pass
 
-            try:
-                hashrate = self.pool_workers[worker]
-                logging.warning("Found %s for %s", hashrate, worker)
-            except KeyError:
+            # On Ethermine, worker name is lowered:
+            for w in (worker, worker.lower()):
+                try:
+                    hashrate = self.pool_workers[w]
+                    logging.warning("Found %s for %s", hashrate, w)
+                    break
+                except KeyError: pass
+
+            if not hashrate:
                 try:
                     hashrate = self.config[worker]['hashrate']
                 except KeyError:
